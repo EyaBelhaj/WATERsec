@@ -4,8 +4,8 @@ import { BsArrowLeftShort, BsCcCircle } from "react-icons/bs";
 import Dropdown from "../../components/Dropdown";
 const Navbar = ({ open, setOpen }) => {
   return (
-    <div className="bg-red-400">
-      <div className="flex bg-lime-400 justify-between items-center p-2">
+    <div className="">
+      <div className="flex justify-between items-center p-2">
         <div className="items-center flex ml-2">
           <div className="items-center flex">
             {open ? (

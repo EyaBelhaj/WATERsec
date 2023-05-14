@@ -54,6 +54,7 @@ const Sidebar = ({ open, setOpen }) => {
                   {menu.submenuItems.map((submenu, i) => (
                     <li
                       className="text-gray-800 text-sm flex justify-start gap-x-4 cursor-pointer p-2 px-5 hover:bg-slate-100 rounded-md"
+                      onClick={() => router(submenu.title)}
                       key={i}
                     >
                       <span className="text-xl block">
@@ -96,7 +97,7 @@ const Menus = [
     submenuItems: [
       { title: "User", icon: <AiOutlineUser /> },
       { title: "Settings", icon: <FiSettings /> },
-      { title: "Simulate Invoice", icon: <TbFileInvoice /> },
+      { title: "Simulate", icon: <TbFileInvoice /> },
       { title: "Notifications", icon: <MdOutlineNotificationsNone /> },
     ],
   },

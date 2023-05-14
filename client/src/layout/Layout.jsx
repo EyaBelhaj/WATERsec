@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
       <Sidebar open={open} setOpen={setOpen} />
       <div className="w-screen">
         <Navbar open={open} setOpen={setOpen} />
-        <div>azeaze</div>
+        <div>{children}</div>
       </div>
     </div>
   );
