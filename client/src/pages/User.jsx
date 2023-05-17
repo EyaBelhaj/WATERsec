@@ -9,14 +9,16 @@ const User = () => {
   };
   return (
     <div>
-      <div className="flex flex-col mt-8 ms-10">
+      <div className="flex flex-col mt-8 ms-14">
         <div>
           <h1 className="font-bold text-2xl">Account</h1>
         </div>
         <div className="flex flex-row mt-10">
           <div
-            className={`flex items-center cursor-pointer rounded duration-300 ${
-              toggle === "General" ? "border-b-4 border-indigo-500" : null
+            className={`flex items-center cursor-pointer rounded duration-300  ${
+              toggle === "General"
+                ? "border-b-4 border-indigo-500"
+                : "border-b-4 border-white text-gray-500"
             } `}
             onClick={() => handleToggle("General")}
           >
@@ -27,7 +29,7 @@ const User = () => {
             className={`flex items-center cursor-pointer rounded ms-10 p-2 duration-300 ${
               toggle === "Change Password"
                 ? "border-b-4 border-indigo-500"
-                : null
+                : "border-b-4 border-white text-gray-500"
             } `}
             onClick={() => handleToggle("Change Password")}
           >
@@ -37,8 +39,8 @@ const User = () => {
           <div
             className={`flex items-center cursor-pointer rounded ms-10 p-2 duration-300 ${
               toggle === "Reporting Configs"
-                ? "border-b-4 border-indigo-500"
-                : null
+                ? "border-b-4 border-indigo-500 "
+                : "border-b-4 border-white text-gray-500"
             } `}
             onClick={() => handleToggle("Reporting Configs")}
           >
