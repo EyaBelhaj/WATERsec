@@ -4,7 +4,7 @@ import { BsArrowLeftShort, BsCcCircle } from "react-icons/bs";
 import Dropdown from "../../components/Dropdown";
 const Navbar = ({ open, setOpen }) => {
   return (
-    <div className="">
+    <div className="sticky top-0 z-50 backdrop-blur">
       <div className="flex justify-between items-center p-2">
         <div className="items-center flex ml-2">
           <div className="items-center flex">

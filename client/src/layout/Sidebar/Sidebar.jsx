@@ -29,7 +29,7 @@ const Sidebar = ({ open, setOpen }) => {
       className={classNames(
         "border-r-2 border-gray-300 h-screen",
         open ? "w-60" : "w-14",
-        "p-2 pt-4 duration-300"
+        "pt-4 duration-300"
       )}
     >
       <div className="pl-0">
@@ -53,11 +53,16 @@ const Sidebar = ({ open, setOpen }) => {
                 <ul>
                   {menu.submenuItems.map((submenu, i) => (
                     <li
-                      className="text-gray-800 text-sm flex justify-start gap-x-4 cursor-pointer p-2 px-5 hover:bg-slate-100 rounded-md"
+                      className="text-gray-500 text-sm flex justify-start gap-x-4 cursor-pointer m-2 p-2 hover:bg-slate-100 rounded-md"
                       onClick={() => router(submenu.title)}
                       key={i}
                     >
-                      <span className="text-xl block">
+                      <span
+                        className={classNames(
+                          "text-gray-600 text-xl block",
+                          !open && ""
+                        )}
+                      >
                         {submenu.icon ? submenu.icon : <RiDashboardFill />}
                       </span>
                       <span
