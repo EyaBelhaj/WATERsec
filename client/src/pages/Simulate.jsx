@@ -7,33 +7,40 @@ const Simulate = () => {
         <h1>Invoice Simulation</h1>
       </div>
       <div className="rounded-2xl w-11/12 h-64 border shadow-lg mt-10">
-        <div>
-          <label className="relative flex items-center cursor-pointer m-10 top-2">
+        <div className="flex items-center mt-5 m-5">
+          <div class="relative w-full me-5">
             <input
               type="text"
-              placeholder="Input"
-              className="h-16 w-4/5 text-4xl text-black border-2 border-gray-200 rounded-lg border-opacity-50 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
+              id="floating_outlined_1"
+              className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-2 border-gray-200 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
             />
-            <span className="text-xl text-black bg-white text-opacity-80  absolute left-5 mt-6 px-1 transition duration-200 input-text">
-              Your Consumption (in m3)
-            </span>
-            <button className="h-16 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ms-8">
-              Button
+            <label
+              for="floating_outlined_1"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              Floating outlined
+            </label>
+          </div>
+
+          <label className="w-30 me-5">
+            <button className="h-10 bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 rounded ">
+              Validate
             </button>
           </label>
         </div>
         <div className="flex ms-12">
-          <label className="w-48 top-5 font-bold">
-            <p className="text-xl">Total Amount</p> <br />
-            <p className="text-4xl">0 TND</p>
+          <label className="w-48">
+            <p className="text-md">Total Amount</p> <br />
+            <p className="text-4xl font-bold">0 TND</p>
           </label>
-          <label className="w-48 top-5 font-bold">
-            <p className="text-xl">Total Amount</p> <br />
-            <p className="text-4xl">0 TND</p>
+          <label className="w-48">
+            <p className="text-md">Total Amount</p> <br />
+            <p className="text-4xl font-bold">0 TND</p>
           </label>
-          <label className="w-48 top-5 font-bold">
-            <p className="text-xl">Total Amount</p> <br />
-            <p className="text-4xl">0 TND</p>
+          <label className="w-48">
+            <p className="text-md">Total Amount</p> <br />
+            <p className="text-4xl font-bold">0 TND</p>
           </label>
         </div>
       </div>

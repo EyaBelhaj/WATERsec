@@ -6,80 +6,117 @@ const Settings = () => {
       <div className="font-bold text-2xl">
         <h1>Settings</h1>
       </div>
-      <div className="rounded-2xl w-11/12 h-60 border shadow-lg mt-10">
+      <p className="text-gray-400 ms-2 mt-8">
+        Please insert a maximum water consumption and duration threshold per
+        sensor and an overall threshold to activate alerts
+      </p>
+      <div className="rounded-2xl w-11/12 h-64 border shadow-lg mt-4">
         <div>
-          <label className="relative cursor-pointer m-10 top-10">
+          <div class="relative mt-10 mx-6">
             <input
               type="text"
-              placeholder="Input"
-              className="h-16 w-4/5 text-4xl text-black border-2 border-gray-200 rounded-lg border-opacity-50 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
+              id="floating_outlined"
+              className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-2 border-gray-200 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
             />
-            <span className="text-xl text-black bg-white text-opacity-80  absolute left-5 mt-6 px-1 transition duration-200 input-text">
-              Input
-            </span>
-          </label>
+            <label
+              for="floating_outlined"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              Floating outlined
+            </label>
+          </div>
         </div>
-        <div className="flex relative mt-10 ms-5">
-          <label className="relative cursor-pointer w-1/3 top-10">
+        <div className="flex relative m-4">
+          <div class="relative m-2">
             <input
               type="text"
-              placeholder="Input"
-              className="h-14 w-10/12  text-4xl text-black border-2 border-gray-200 rounded-lg border-opacity-50 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
+              id="floating_outlined_1"
+              className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-2 border-gray-200 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
             />
-            <span className="text-md text-black bg-white text-opacity-80 absolute left-5 top-5 pb-1 transition duration-200 input-text">
-              Input
-            </span>
-          </label>
-          <label className="relative cursor-pointer w-1/3 top-10">
+            <label
+              for="floating_outlined_1"
+              className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              Floating outlined
+            </label>
+          </div>
+          <div class="relative m-2">
             <input
               type="text"
-              placeholder="Input"
-              className="h-14 w-10/12   text-4xl text-black border-2 border-gray-200 rounded-lg border-opacity-50 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
+              id="floating_outlined_2"
+              className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-2 border-gray-200 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
             />
-            <span className="text-md text-black bg-white text-opacity-80 absolute left-5 top-5 pb-1 transition duration-200 input-text">
-              Input
-            </span>
-          </label>
-          <label className="relative cursor-pointer w-1/3 top-10">
+            <label
+              for="floating_outlined_2"
+              className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              Floating outlined
+            </label>
+          </div>
+          <div class="relative m-2">
             <input
               type="text"
-              placeholder="Input"
-              className="h-14 w-10/12   text-4xl text-black border-2 border-gray-200 rounded-lg border-opacity-50 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
+              id="floating_outlined_3"
+              className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-2 border-gray-200 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
             />
-            <span className="text-md text-black bg-white text-opacity-80 absolute left-5 top-5 pb-1 transition duration-200 input-text">
-              Input
-            </span>
-          </label>
-          <label className="relative cursor-pointer w-1/3 top-10">
+            <label
+              for="floating_outlined_3"
+              className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              Floating outlined
+            </label>
+          </div>
+          <div class="relative m-2">
             <input
               type="text"
-              placeholder="Input"
-              className="h-14 w-10/12  text-4xl text-black border-2 border-gray-200 rounded-lg border-opacity-50 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
+              id="floating_outlined_4"
+              className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-2 border-gray-200 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
             />
-            <span className="text-md text-black bg-white text-opacity-80 absolute left-5 top-5 pb-1 transition duration-200 input-text">
-              Input
-            </span>
-          </label>
-          <label className="relative cursor-pointer w-1/3 top-10">
+            <label
+              for="floating_outlined_4"
+              className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              Floating outlined
+            </label>
+          </div>
+          <div class="relative m-2">
             <input
               type="text"
-              placeholder="Input"
-              className="h-14 w-10/12   text-4xl text-black border-2 border-gray-200 rounded-lg border-opacity-50 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
+              id="floating_outlined_5"
+              className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-2 border-gray-200 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
             />
-            <span className="text-md text-black bg-white text-opacity-80 absolute left-5 top-5 pb-1 transition duration-200 input-text">
-              Input
-            </span>
-          </label>
-          <label className="relative cursor-pointer w-1/3 top-10">
+            <label
+              for="floating_outlined_5"
+              className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              Floating outlined
+            </label>
+          </div>
+          <div class="relative m-2">
             <input
               type="text"
-              placeholder="Input"
-              className="h-14 w-10/12   text-4xl text-black border-2 border-gray-200 rounded-lg border-opacity-50 outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200"
+              id="floating_outlined_6"
+              className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-2 border-gray-200 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
             />
-            <span className="text-md text-black bg-white text-opacity-80 absolute left-5 top-5 pb-1 transition duration-200 input-text">
-              Input
-            </span>
-          </label>
+            <label
+              for="floating_outlined_6"
+              className="absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              Floating outlined
+            </label>
+          </div>
+        </div>
+        <div className="float-right me-5">
+          <button className="h-10 bg-blue-600 hover:bg-blue-700 text-white font-bold p-2 rounded-lg">
+            Save Changes
+          </button>
         </div>
       </div>
     </div>
