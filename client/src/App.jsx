@@ -8,18 +8,19 @@ import Reporting from "./pages/Reporting";
 import Settings from "./pages/Settings";
 import Simulate from "./pages/Simulate";
 import Layout from "./layout/Layout";
-
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   // Navigate,
 } from "react-router-dom";
+import Auth from "./pages/Auth";
 
 function App() {
   return (
     <Router className="App">
-      <Layout>
+      <Auth />
+      {/* <Layout>
         <Routes>
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Analytics" element={<Analytics />} />
@@ -30,7 +31,7 @@ function App() {
           <Route path="/Simulate" element={<Simulate />} />
           <Route path="/User" element={<User />} />
         </Routes>
-      </Layout>
+      </Layout> */}
     </Router>
   );
 }
