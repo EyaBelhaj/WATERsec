@@ -24,11 +24,7 @@ const Reducers = (state, action) => {
         isFetching: false,
         error: false,
       };
-      return {
-        reclamations: action.payload,
-        isFetching: false,
-        error: false,
-      };
+
     default:
       return state;
   }

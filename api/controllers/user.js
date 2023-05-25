@@ -1,17 +1,17 @@
 const userModel = require("../models/user");
 
-// exports.login_user = async function (req, res) {
-//   const { email, password } = req.body;
-//   try {
-//     let user = await dbAdmin.findOne({ name: name }).exec();
-//     if (!user) throw new Error("name non valid");
+exports.login_user = async function (req, res) {
+  const { email, password } = req.body;
+  try {
+    let user = await userModel.findOne({ email: email }).exec();
+    if (!user) throw new Error("credentials non valid");
 
-//     res.status(201).send({ auth_token: token });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(403).send(error);
-//   }
-// };
+    res.status(201).send(user);
+  } catch (error) {
+    console.error(error);
+    res.status(403).send(error);
+  }
+};
 exports.create_user = async function (req, res) {
   const {
     firstName,

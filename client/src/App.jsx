@@ -1,4 +1,5 @@
 import "./App.css";
+
 import Dashboard from "./pages/Dashboard";
 import User from "./pages/User";
 import Analytics from "./pages/Analytics";
@@ -15,23 +16,35 @@ import {
   // Navigate,
 } from "react-router-dom";
 import Auth from "./pages/Auth";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const token = localStorage.getItem("user");
+    if (token) {
+      setUser(token);
+    }
+  }, []);
   return (
     <Router className="App">
-      <Auth />
-      {/* <Layout>
-        <Routes>
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/Analytics" element={<Analytics />} />
-          <Route path="/Comparison" element={<Comparison />} />
-          <Route path="/Notifications" element={<Notifications />} />
-          <Route path="/Reporting" element={<Reporting />} />
-          <Route path="/Settings" element={<Settings />} />
-          <Route path="/Simulate" element={<Simulate />} />
-          <Route path="/User" element={<User />} />
-        </Routes>
-      </Layout> */}
+      {user ? (
+        <Layout>
+          <Routes>
+            <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/Analytics" element={<Analytics />} />
+            <Route path="/Comparison" element={<Comparison />} />
+            <Route path="/Notifications" element={<Notifications />} />
+            <Route path="/Reporting" element={<Reporting />} />
+            <Route path="/Settings" element={<Settings />} />
+            <Route path="/Simulate" element={<Simulate />} />
+            <Route path="/User" element={<User />} />
+          </Routes>
+        </Layout>
+      ) : (
+        <Auth />
+      )}
     </Router>
   );
 }

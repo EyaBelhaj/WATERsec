@@ -1,7 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import { Fragment, useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { Menu, Transition } from "@headlessui/react";
 const AvatarDropdown = () => {
+  const navigate = useNavigate();
+
+  const handleLougout = (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    navigate("/");
+    window.location.reload();
+  };
   return (
     <div>
       <Menu as="div" className="relative">
@@ -49,8 +58,9 @@ const AvatarDropdown = () => {
                       <a
                         href="#"
                         className="group flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-400 hover:text-white"
+                        onClick={handleLougout}
                       >
-                        log
+                        logout
                       </a>
                     </Menu.Item>
                   </div>
