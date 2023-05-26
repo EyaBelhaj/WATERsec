@@ -2,8 +2,12 @@ import { useNavigate } from "react-router-dom";
 import { Fragment, useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { Menu, Transition } from "@headlessui/react";
+import jwt_decode from "jwt-decode";
+
 const AvatarDropdown = () => {
   const navigate = useNavigate();
+  const userToken = localStorage.getItem("auth_token");
+  const decodedUserToken = jwt_decode(userToken);
 
   const handleLougout = (e) => {
     e.preventDefault();
@@ -19,7 +23,7 @@ const AvatarDropdown = () => {
             <Fragment>
               {/* menu button */}
               <Menu.Button className="bg-sky-500 font-bold text-lg text-white p-1 px-3 m-0 rounded-full">
-                T
+                {decodedUserToken.name[0]}
               </Menu.Button>
               {/* meni items */}
               <Transition show={open}>
@@ -33,7 +37,7 @@ const AvatarDropdown = () => {
                         href="#"
                         className="group flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-400 hover:text-white"
                       >
-                        user
+                        {decodedUserToken.name}
                       </a>
                     </Menu.Item>
                     <Menu.Item>

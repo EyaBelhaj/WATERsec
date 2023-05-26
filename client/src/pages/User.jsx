@@ -1,7 +1,9 @@
 import { useState } from "react";
+
 import ImagePreview from "../components/ImagePreview";
 import UserInfo from "../components/UserInfo";
 import { BsPersonSquare, BsFillKeyFill, BsPaperclip } from "react-icons/bs";
+
 const User = () => {
   const [toggle, settToggle] = useState("General");
   const handleToggle = (comp) => {
@@ -70,7 +72,7 @@ const User = () => {
                 for="floating_outlined_1"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
-                Floating outlined
+                Old Password
               </label>
             </div>
             <div class="relative m-2">
@@ -84,7 +86,7 @@ const User = () => {
                 for="floating_outlined_2"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
-                Floating outlined
+                New Password
               </label>
             </div>
             <span className="text-gray-400 text-sm m-5">
@@ -101,7 +103,7 @@ const User = () => {
                 for="floating_outlined_3"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
-                Floating outlined
+                Confirm new password
               </label>
             </div>
             <div className="float-right me-5">
@@ -124,7 +126,7 @@ const User = () => {
                 for="floating_outlined_2"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
-                Floating outlined
+                Periodicity
               </label>
             </div>
 
@@ -139,7 +141,7 @@ const User = () => {
                 for="floating_outlined_3"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
-                Floating outlined
+                Emails
               </label>
             </div>
             <div className="float-right me-5">

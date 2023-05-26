@@ -20,7 +20,7 @@ import {
 import { RiDashboardFill } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
 import { TbFileInvoice } from "react-icons/tb";
-
+import logo from "../../assests/watersec.jpg";
 const Sidebar = ({ open, setOpen }) => {
   const router = useNavigate();
 
@@ -32,6 +32,9 @@ const Sidebar = ({ open, setOpen }) => {
         "pt-4 duration-300"
       )}
     >
+      <div className="flex justify-center">
+        <img src={logo} alt="logo" width={120} />
+      </div>
       <div className="pl-0">
         <ul>
           {Menus.map((menu, i) => (

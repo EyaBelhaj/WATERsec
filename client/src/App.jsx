@@ -22,7 +22,7 @@ function App() {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    const token = localStorage.getItem("user");
+    const token = localStorage.getItem("auth_token");
     if (token) {
       setUser(token);
     }
@@ -32,7 +32,7 @@ function App() {
       {user ? (
         <Layout>
           <Routes>
-            <Route path="/Dashboard" element={<Dashboard />} />
+            <Route index element={<Dashboard />} />
             <Route path="/Analytics" element={<Analytics />} />
             <Route path="/Comparison" element={<Comparison />} />
             <Route path="/Notifications" element={<Notifications />} />

@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { BsPen } from "react-icons/bs";
 
 const ImagePreview = () => {
   const [selectedFile, setSelectedFile] = useState();
   const [checkFile, setCheckFile] = useState(false);
+  const [image, setImage] = useState("");
 
   const imageHandler = (e) => {
     setSelectedFile(e.target.files[0]);
@@ -17,9 +19,14 @@ const ImagePreview = () => {
       alert("select a file");
     }
   };
+
+  const handleChange = (e) => {
+    console.log("handle change", e.target.files);
+    setImage(e.target.files[0]);
+  };
   return (
     <div className="border shadow-lg rounded-2xl w-1/3 p-5">
-      <div className="bg-gray-300 flex justify-center items-center px-2">
+      {/* <div className="bg-gray-300 flex justify-center items-center px-2">
         <div className="w-[320px] grid gap-2">
           <div className="h-24 cursor-pointer relative flex justify-center items-center border-2 rounded-md bg-gray-200">
             <input
@@ -48,8 +55,33 @@ const ImagePreview = () => {
             Upload
           </button>
         </div>
+      </div> */}
+      <div className="flex justify-center">
+        <div class="avatar-upload">
+          <div class="avatar-edit">
+            <input
+              type="file"
+              onChange={handleChange}
+              id="imageUpload"
+              accept=".png, .jpg, .jpeg"
+            />
+            <label
+              htmlFor="imageUpload"
+              className="bg-gray-200  border-2 p-1 rounded-circle"
+            >
+              <BsPen />{" "}
+            </label>
+          </div>
+          <div class="avatar-preview">
+            <img
+              className="border border-4"
+              id="imagePreview"
+              src={image ? URL.createObjectURL(image) : null}
+            />
+          </div>
+        </div>
       </div>
-      <p className="text-sm text-gray-500 text-center">
+      <p className="text-sm text-gray-500 text-center mt-5">
         Allowed *.jpeg, *.jpg, *.png, *.gif, max size of 3.1 MB
       </p>
     </div>

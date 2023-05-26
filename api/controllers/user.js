@@ -1,12 +1,32 @@
 const userModel = require("../models/user");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 exports.login_user = async function (req, res) {
   const { email, password } = req.body;
+  let token;
+
   try {
     let user = await userModel.findOne({ email: email }).exec();
     if (!user) throw new Error("credentials non valid");
 
-    res.status(201).send(user);
+    token = jwt.sign(
+      {
+        id: user.id,
+        name: user.firstName + " " + user.lastName,
+        email: user.email,
+        phone: user.phone,
+        country: user.country,
+        addresslieu: user.addresslieu,
+        picture: user.picture,
+        isAdmin: user.isAdmin,
+      },
+      process.env.ACCESS_TOKEN_SECRET,
+      {
+        expiresIn: "24h",
+      }
+    );
+    res.status(201).send({ auth_token: token });
   } catch (error) {
     console.error(error);
     res.status(403).send(error);

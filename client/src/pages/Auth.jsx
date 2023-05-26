@@ -12,8 +12,8 @@ const Auth = () => {
     event.preventDefault();
     try {
       const res = await axios.post("/login_user", data);
-      localStorage.setItem("user", JSON.stringify(res.data));
-      navigate("/Dashboard");
+      localStorage.setItem("auth_token", JSON.stringify(res.data.auth_token));
+      navigate("/");
       window.location.reload();
     } catch (err) {
       console.log(err);
