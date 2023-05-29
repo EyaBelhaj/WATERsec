@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineDashboard, AiOutlineUser } from "react-icons/ai";
 import {
   MdOutlineAnalytics,
@@ -18,12 +18,24 @@ import {
   BsSearch,
 } from "react-icons/bs";
 import { RiDashboardFill } from "react-icons/ri";
+import { FcElectricalSensor, FcApprove } from "react-icons/fc";
 import { FiSettings } from "react-icons/fi";
 import { TbFileInvoice } from "react-icons/tb";
 import logo from "../../assests/watersec.jpg";
-const Sidebar = ({ open, setOpen }) => {
-  const router = useNavigate();
+import jwt_decode from "jwt-decode";
 
+const Sidebar = ({ open, setOpen }) => {
+  const [menu, setMenu] = useState(adminMenus);
+  const router = useNavigate();
+  const userToken = localStorage.getItem("auth_token");
+  const decodedUserToken = jwt_decode(userToken);
+  useEffect(() => {
+    if (decodedUserToken.isAdmin === true) {
+      setMenu(adminMenus);
+    } else {
+      setMenu(Menus);
+    }
+  }, []);
   return (
     <div
       className={classNames(
@@ -35,9 +47,10 @@ const Sidebar = ({ open, setOpen }) => {
       <div className="flex justify-center">
         <img src={logo} alt="logo" width={120} />
       </div>
+
       <div className="pl-0">
         <ul>
-          {Menus.map((menu, i) => (
+          {menu.map((menuu, i) => (
             <>
               <li
                 key={i}
@@ -49,12 +62,12 @@ const Sidebar = ({ open, setOpen }) => {
                     !open && "scale-0"
                   )}
                 >
-                  {menu.title}
+                  {menuu.title}
                 </span>
               </li>
-              {menu.submenu && (
+              {menuu.submenu && (
                 <ul>
-                  {menu.submenuItems.map((submenu, i) => (
+                  {menuu.submenuItems.map((submenu, i) => (
                     <li
                       className="text-gray-500 text-sm flex justify-start gap-x-4 cursor-pointer m-2 p-2 hover:bg-slate-100 rounded-md"
                       onClick={() => router(submenu.title)}
@@ -107,6 +120,16 @@ const Menus = [
       { title: "Settings", icon: <FiSettings /> },
       { title: "Simulate", icon: <TbFileInvoice /> },
       { title: "Notifications", icon: <MdOutlineNotificationsNone /> },
+    ],
+  },
+];
+const adminMenus = [
+  {
+    title: "General",
+    submenu: true,
+    submenuItems: [
+      { title: "Users", icon: <FcApprove /> },
+      { title: "Sensors", icon: <FcElectricalSensor /> },
     ],
   },
 ];

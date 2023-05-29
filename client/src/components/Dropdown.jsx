@@ -35,33 +35,37 @@ const AvatarDropdown = () => {
                     <Menu.Item>
                       <a
                         href="#"
-                        className="group flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-400 hover:text-white"
+                        className="group flex flex-col  px-4 py-2 text-sm text-gray-700 hover:bg-indigo-400 hover:text-white"
                       >
-                        {decodedUserToken.name}
+                        <p>{decodedUserToken.name}</p>
+                        <p className="text-sm text-gray-500">
+                          {decodedUserToken.email}
+                        </p>
                       </a>
                     </Menu.Item>
-                    <Menu.Item>
-                      <a
-                        href="#"
-                        className="group flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-400 hover:text-white"
-                      >
-                        duplicate
-                      </a>
-                    </Menu.Item>
+
+                    <div>
+                      <div className="mid">
+                        <label className="rocker">
+                          <input
+                            type="checkbox"
+                            onChange={(e) => console.log(e.target.value)}
+                          />
+                          <span className="switch-left" value="on">
+                            On
+                          </span>
+                          <span className="switch-right" value="off">
+                            Off
+                          </span>
+                        </label>
+                      </div>
+                    </div>
                   </div>
                   <div className="py-1">
                     <Menu.Item>
                       <a
                         href="#"
-                        className="group flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-400 hover:text-white"
-                      >
-                        sett
-                      </a>
-                    </Menu.Item>
-                    <Menu.Item>
-                      <a
-                        href="#"
-                        className="group flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-400 hover:text-white"
+                        className="group flex items-center px-4 py-2 text-sm text-gray-700 font-bold hover:bg-indigo-400 hover:text-white"
                         onClick={handleLougout}
                       >
                         logout
