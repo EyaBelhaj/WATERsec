@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "../../api/axios";
 import UsersModal from "../../components/UsersModal";
+import Swal from "sweetalert2";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -17,6 +18,31 @@ const Users = () => {
       console.log(err);
       alert("try again", err);
     }
+  };
+  const handleDelete = async (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "are you sure ?",
+      text: "If you delete, this data is unretrievable !",
+      icon: "Attention",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Delete it !",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`/delete_user/${id}`)
+          .then((res) => {
+            fetchUsers();
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+
+        Swal.fire("Delete !", "User has been delete.", "Succès");
+      }
+    });
   };
   useEffect(() => {
     fetchUsers();
@@ -68,7 +94,7 @@ const Users = () => {
                         src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt=""
                       />
-                      <span className="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
+                      {/* <span className="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span> */}
                     </div>
                     <div className="text-sm">
                       <div className="font-medium text-gray-700">
@@ -89,7 +115,11 @@ const Users = () => {
                   </td>
                   <td className="px-6 py-4">
                     <div className="flex gap-4">
-                      <a x-data="{ tooltip: 'Delete' }" href="#">
+                      <a
+                        x-data="{ tooltip: 'Delete' }"
+                        href="#"
+                        onClick={() => handleDelete(user._id)}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
