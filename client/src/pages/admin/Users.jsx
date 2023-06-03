@@ -10,6 +10,7 @@ const Users = () => {
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
+
   const fetchUsers = async () => {
     try {
       const res = await axios.get("fetch_all_user");

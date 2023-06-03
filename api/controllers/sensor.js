@@ -68,3 +68,25 @@ exports.update_sensor = async function (req, res) {
     res.status(500).send(error);
   }
 };
+exports.add_Cons_sensor = async function (req, res) {
+  const id = req.params.id;
+  //   const { password } = req.body;
+  let newPassword;
+  //   if (password) {
+  //     const salt = await bcrypt.genSalt(10);
+  //     newPassword = await bcrypt.hash(password, salt);
+  //   }
+
+  try {
+    const updatedsensor = await sensorModel.findByIdAndUpdate(
+      id,
+      { $set: { ...req.body, password: newPassword } },
+      { new: true }
+    );
+
+    res.status(200).send(updatedsensor);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error);
+  }
+};
