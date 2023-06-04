@@ -15,8 +15,21 @@ const mqttClient = mqtt.connect(mqttBroker);
 // Gérer l'événement de connexion au broker MQTT
 mqttClient.on('connect', () => {
   console.log('Connected to MQTT broker');
+
   // S'abonner au topic MQTT
-  mqttClient.subscribe(mqttTopic);
+  mqttClient.subscribe(mqttTopic, { qos: 0 }, (erreur, accord) => {
+    if (erreur) {
+      console.error('Erreur lors de la souscription au sujet :', erreur);
+    } else {
+      console.log('Abonné au sujet :', accord[0].mqttTopic);
+    }
+  });
+
+  mqttClient.on('message', (mqttTopic, message) => {
+    console.log('Message reçu sur le sujet :', mqttTopic);
+    console.log('Message :', message.toString());
+  });
+
 });
 mqttClient.on('error', (error) => {
   console.error('connection failed', error)
