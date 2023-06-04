@@ -33,6 +33,7 @@ exports.login_user = async function (req, res) {
   }
 };
 exports.create_user = async function (req, res) {
+  console.log(req.body);
   const {
     firstName,
     lastName,
