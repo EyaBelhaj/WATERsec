@@ -29,7 +29,7 @@ mqttClient.on("connect", () => {
   mqttClient.on("message", (mqttTopic, message) => {
     console.log("Message reçu sur le sujet :", mqttTopic);
     console.log("Message :", message.toString());
-    consumption(message.toString());
+    consumption.create_consumption(message.toString());
   });
 });
 mqttClient.on("error", (error) => {
