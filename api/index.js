@@ -1,39 +1,40 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const mqtt = require('mqtt');
+const mqtt = require("mqtt");
 const app = express();
 const port = 8000;
 const cors = require("cors");
 const userRoute = require("./routes/userRoute");
 const sensorRoute = require("./routes/sensorRoute");
 const consumptionRoutes = require("./routes/consumptionRoutes");
+const consumption = require("./controllers/consumption");
 
-const mqttBroker = 'mqtt://192.168.23.129:1883';
-const mqttTopic = "mytopic"; 
+const mqttBroker = "mqtt://192.168.23.129:1883";
+const mqttTopic = "mytopic";
 
 const mqttClient = mqtt.connect(mqttBroker);
 // Gérer l'événement de connexion au broker MQTT
-mqttClient.on('connect', () => {
-  console.log('Connected to MQTT broker');
+mqttClient.on("connect", () => {
+  console.log("Connected to MQTT broker");
 
   // S'abonner au topic MQTT
   mqttClient.subscribe(mqttTopic, { qos: 0 }, (erreur, accord) => {
     if (erreur) {
-      console.error('Erreur lors de la souscription au sujet :', erreur);
+      console.error("Erreur lors de la souscription au sujet :", erreur);
     } else {
-      console.log('Abonné au sujet :', accord[0].mqttTopic);
+      console.log("Abonné au sujet :", accord[0].mqttTopic);
     }
   });
 
-  mqttClient.on('message', (mqttTopic, message) => {
-    console.log('Message reçu sur le sujet :', mqttTopic);
-    console.log('Message :', message.toString());
+  mqttClient.on("message", (mqttTopic, message) => {
+    console.log("Message reçu sur le sujet :", mqttTopic);
+    console.log("Message :", message.toString());
+    consumption(message.toString());
   });
-
 });
-mqttClient.on('error', (error) => {
-  console.error('connection failed', error)
-})
+mqttClient.on("error", (error) => {
+  console.error("connection failed", error);
+});
 app.use(cors());
 app.use(express.json());
 app.use("/", userRoute);
