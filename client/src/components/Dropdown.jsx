@@ -3,17 +3,26 @@ import { Fragment, useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { Menu, Transition } from "@headlessui/react";
 import jwt_decode from "jwt-decode";
+import axios from "../api/axios";
 
 const AvatarDropdown = () => {
   const navigate = useNavigate();
   const userToken = localStorage.getItem("auth_token");
   const decodedUserToken = jwt_decode(userToken);
-
+  const [btntoggle, setbtntoggle] = useState(true);
   const handleLougout = (e) => {
     e.preventDefault();
     localStorage.clear();
     navigate("/");
     window.location.reload();
+  };
+  const handleToggleOnOff = async () => {
+    setbtntoggle(!btntoggle);
+    try {
+      await axios.post("/toggleOnOff", { value: btntoggle });
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div>
@@ -44,21 +53,48 @@ const AvatarDropdown = () => {
                       </a>
                     </Menu.Item>
 
-                    <div>
-                      <div className="mid">
+                    <div className="flex justify-center">
+                      {/* <div className="mid">
                         <label className="rocker">
                           <input
                             type="checkbox"
+                            name="checkbox"
                             onChange={(e) => console.log(e.target.value)}
                           />
-                          <span className="switch-left" value="on">
+                          <label className="switch-left" value="on">
                             On
-                          </span>
-                          <span className="switch-right" value="off">
+                          </label>
+                          <label className="switch-right" value="off">
                             Off
-                          </span>
+                          </label>
                         </label>
-                      </div>
+                      </div> */}
+                      {/* <label class="relative inline-flex items-center cursor-pointer">
+                        <input
+                          type="checkbox"
+                          class="sr-only peer"
+                          onChange={handleToggleOnOff}
+                          value={btntoggle}
+                        />
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                        <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                          Toggle me
+                        </span>
+                      </label> */}
+                      <label class="flex justify-center items-center relative w-max cursor-pointer select-none">
+                        <input
+                          type="checkbox"
+                          onChange={handleToggleOnOff}
+                          class="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-blue-500 bg-red-500"
+                        />
+                        <span class="absolute font-medium text-xs uppercase right-1 text-white">
+                          {btntoggle ? <p> Off</p> : <p>ON </p>}
+                        </span>
+                        <span class="absolute font-medium text-xs uppercase right-8 text-white">
+                          {btntoggle ? <p> Off</p> : <p>ON </p>}
+                        </span>
+                        <span class="w-7 h-7 right-7 absolute rounded-full transform transition-transform bg-gray-200" />
+                      </label>
                     </div>
                   </div>
                   <div className="py-1">

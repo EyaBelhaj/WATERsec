@@ -46,7 +46,7 @@ function App() {
         ) : (
           <Layout>
             <Routes>
-              <Route index element={<Dashboard />} />
+              <Route index path="/Dashboard" element={<Dashboard />} />
               <Route path="/Analytics" element={<Analytics />} />
               <Route path="/Comparison" element={<Comparison />} />
               <Route path="/Notifications" element={<Notifications />} />

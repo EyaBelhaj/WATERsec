@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const consumptionSchema = new mongoose.Schema(
   {
-    write: String,
+    position: String,
     data: String,
   },
   {

@@ -1,7 +1,28 @@
 import { BiTrendingDown } from "react-icons/bi";
 import { MyResponsiveLine } from "../components/LineChart";
+import axios from "../api/axios";
+import { useState, useEffect } from "react";
 
 const Dashboard = () => {
+  const [consumption, setConsumption] = useState([]);
+  // const [totalcons, setTotalcons] = useState(0);
+  const fetchconsumption = async () => {
+    try {
+      const res = await axios.get("fetch_all_consumption");
+      res.data = res.data.map((item) => {
+        return parseInt(item.data);
+      });
+      setConsumption(res.data);
+    } catch (err) {
+      console.log(err);
+      alert("try again", err);
+    }
+  };
+  useEffect(() => {
+    fetchconsumption();
+  }, []);
+
+  console.log(consumption[consumption.length - 1].data);
   return (
     <div>
       <div className="flex flex-row	justify-center mt-10 mr-16">
@@ -14,7 +35,9 @@ const Dashboard = () => {
             <p>2% Than your average</p>
           </div>
           <div>
-            <p className="font-bold text-4xl">30 L</p>
+            <p className="font-bold text-4xl">
+              {consumption[consumption.length - 1]}L
+            </p>
           </div>
         </div>
         <div className="w-1/3 h-40 rounded-2xl border shadow-lg ms-5 p-5">
@@ -26,7 +49,9 @@ const Dashboard = () => {
             <p>Decrease of A with x25 L</p>
           </div>
           <div>
-            <p className="font-bold text-4xl">268 L</p>
+            <p className="font-bold text-4xl">
+              {consumption.reduce((a, b) => a + b, 0)} L
+            </p>
           </div>
         </div>
         <div className="w-1/3 h-40 text-sm rounded-2xl border shadow-lg ms-5 p-5">

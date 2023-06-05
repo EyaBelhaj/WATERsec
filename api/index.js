@@ -41,6 +41,16 @@ app.use("/", userRoute);
 app.use("/", sensorRoute);
 app.use("/", consumptionRoutes);
 
+app.use("/toggleOnOff", (req, res) => {
+  console.log("req.body", req.body);
+  const client = mqtt.connect(mqttBroker);
+
+  client.on("connect", () => {
+    client.publish(mqttTopic, req.body.value);
+    client.end();
+  });
+});
+
 mongoose
   .connect(
     "mongodb+srv://eya:eya@cluster0.7y81eeq.mongodb.net/?retryWrites=true&w=majority"
